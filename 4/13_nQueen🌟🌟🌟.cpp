@@ -6,8 +6,8 @@ int a[N]; // a[i]表示第i行上皇后放在a[i]列
 bool check(int row, int col) {  //判断第row行可否将皇后放在第col列上
   for(int i = 1; i <= row; i++) {
     if(a[i] == col) return false;  //col列上有皇后，不可放
-    if(i + a[i] == row + col) return false;  //上对角线
-    if(i - a[i] == row - col) return false;   //下对角线
+    if(i - a[i] == row - col) return false;   //主对角线
+    if(i + a[i] == row + col) return false;  //副对角线
   }
   return true;
 }
