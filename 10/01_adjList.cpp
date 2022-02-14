@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-const int N = 5;  // N为定点数
+const int N = 5;  // N为顶点数
 
 struct arcNode {
   int v, w; // 结点编号, 权值
