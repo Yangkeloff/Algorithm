@@ -6,7 +6,7 @@ using namespace std;
 const int maxv = 1000;
 const int INF = 1000000000; // ∞
 
-int n, d[maxv];
+int n, d[maxv], s;
 bool vis[maxv] = {false};
 
 // 邻接矩阵
@@ -60,3 +60,33 @@ void dijkstra_2(int s) {
     }
   }
 }
+
+int main() {
+  int u, v, m, w; // 弧尾, 弧头, 总边数, 边权值
+  scanf("%d%d%d", &n, &m, &s);
+  fill(G[0], G[0] + maxv * maxv, INF);
+  for(int i = 0; i < m; i++) {
+    scanf("%d%d%d", &u, &v, &w);  // 输入边u->v及权值
+    G[u][v] = w;
+  }
+  dijkstra_1(s);
+  for(int i = 0; i < n; i++) {
+    printf("%d ", d[i]);
+  }
+  printf("\n");
+  return 0;
+}
+
+/* 测试数据
+6 8 0
+0 1 1
+0 3 4
+0 4 4
+1 3 2
+2 5 1
+3 2 2
+3 4 3
+4 5 3
+
+res: 0 1 5 3 4 6
+*/
